@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  // when document is ready
   // change heading content
   const originalHeading = $("#heading").text();
   $("#heading-changer").on("input", function (e) {
@@ -8,23 +7,19 @@ $(document).ready(function () {
     if (currentValue.length === 0) {
       $("#heading").text(originalHeading);
     } else {
-      $("#heading").text(currentValue);
+      $("#heading").text(currentValue.toUpperCase());
     }
   });
 
-  // change color of heading
+  // change color of selector demonstration
   $("#color-picker").on("input", function (e) {
     const currentValue = e.target.value;
-    // reverse value with remove # symbol
-    const reverseValue = e.target.value
-      .split("")
-      .reverse()
-      .join("")
-      .slice(0, -1);
-    $("#heading").css({
+
+    $("#selector-demo").css({
       "background-color": currentValue,
-      color: "#" + reverseValue,
     });
+
+    $("#color-picker").css("background-color", currentValue);
   });
 
   // toogle heading

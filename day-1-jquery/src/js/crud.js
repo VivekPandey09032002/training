@@ -1,9 +1,14 @@
 $(document).ready(function () {
-  // when document is loaded
-  $("#submitBtn").click(function (e) {
-    $("#myModal").modal("show");
+  // Close the modal when the close button is clicked
+  $("#close-modal").click(function () {
+    $("#myModal").modal("hide");
+  });
+
+  // when form is submitted
+  $("#studentForm").submit(function (e) {
     e.preventDefault();
-    console.log("Submit Button Clicked");
+    $("#myModal").modal("show");
+    console.log("form submitted");
     const formData = $("#studentForm").serializeArray();
     const jsonData = {};
     const courses = [];
@@ -22,10 +27,18 @@ $(document).ready(function () {
     });
 
     jsonData.courses = courses;
-    // Display the JSON data in the console (optional)
+    // Display the JSON data in the console
     console.log(jsonData);
-    $("#modal-content").text(JSON.stringify(jsonData));
-
-    // Now you can use the jsonData object to send it to the server, save it to a database, etc.
+    // making modal pretty
+    $("#modal-content").empty();
+    $.each(jsonData, function (key) {
+      const preElement = $("<pre></pre>");
+      const codeElement = $("<code></code>").text(
+        JSON.stringify({ [key]: jsonData[key] }, null, 2)
+      );
+      preElement.append(codeElement);
+      $("#modal-content").append(preElement);
+      hljs.highlightElement(codeElement[0]);
+    });
   });
 });
