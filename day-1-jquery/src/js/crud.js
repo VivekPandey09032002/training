@@ -12,18 +12,29 @@ $(document).ready(function () {
     // Display the JSON data in the console
     console.log(jsonData);
     // making modal pretty
-    if (isEmpty(jsonData)) {
+    if (!isEmpty(jsonData) && isValid()) {
       addDataToModal(jsonData);
       modalElement.modal("show");
     }
     // ajax call to url
     // sendData(jsonData);
     $(this).addClass("was-validated");
+    $(this).removeClass("needs-validation");
   });
+
+  function isValid() {
+    let validData = true;
+    $.each(formElement[0], function () {
+      if ($(this).hasClass("is-invalid")) {
+        validData = false;
+      }
+    });
+    return validData;
+  }
 
   function isEmpty(data) {
     // object hai
-    let validData = true;
+    let emptyData = false;
     $.each(data, function (key, val) {
       if (key === "courses") {
         const coursesData = val;
@@ -31,17 +42,17 @@ $(document).ready(function () {
         coursesData.forEach(function (course) {
           $.each(course, function (key, val) {
             if (val.trim().length == 0) {
-              validData = false;
+              emptyData = true;
             }
           });
         });
       } else {
         if (val.trim().length == 0) {
-          validData = false;
+          emptyData = true;
         }
       }
     });
-    return validData;
+    return emptyData;
   }
 
   function sendData(jsonData) {
