@@ -1,0 +1,24 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "addressLine1": "HOUSE NO 598, BABA SURDAS COLONY",
+      "city": "Alipur",
+      "country": "India",
+      "courses": [
+        {
+          "institution": "kcc",
+          "degree": "btech",
+          "year": "2001",
+          "degreeType": "masters"
+        }
+      ],
+      "dob": "2023-08-05",
+      "email": "codewithvivekpandey@gmail.com",
+      "gender": "male",
+      "name": "Vivek pandey",
+      "state": "Assam",
+      "stream": "science"
+    }
+  ]
+}
