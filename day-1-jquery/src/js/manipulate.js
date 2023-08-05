@@ -18,7 +18,7 @@ function addEducation() {
                             <input type="text" class="form-control" name="coursedegreeType[]" placeholder="Masters | Gradudation" required>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-danger h-75" onclick="removeEducation(this)">Remove</button>
+                    <button type="button" class="btn btn-outline-danger h-75" onclick="removeEducation(this)">Remove</button>
                 </div>`;
 
   $("#education-form").append(educationItem);

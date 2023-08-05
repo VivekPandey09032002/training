@@ -3,7 +3,6 @@ $(document).ready(function () {
   const originalHeading = $("#heading").text();
   $("#heading-changer").on("input", function (e) {
     let currentValue = e.target.value;
-    console.log(currentValue);
     if (currentValue.length === 0) {
       $("#heading").text(originalHeading);
     } else {
@@ -26,12 +25,10 @@ $(document).ready(function () {
   $("#heading-btn").on("click", function (e) {
     const btnElement = $("#heading");
     if (btnElement.hasClass("visible")) {
-      console.log("visible");
       btnElement.removeClass("visible");
       btnElement.addClass("hidden");
       $("#heading-btn").text("show");
     } else {
-      console.log("hidden");
       btnElement.removeClass("hidden");
       btnElement.addClass("visible");
       $("#heading-btn").text("hide");
