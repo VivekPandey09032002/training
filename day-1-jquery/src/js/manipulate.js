@@ -4,18 +4,22 @@ function addEducation() {
                         <div class="form-group">
                             <label for="institution">Institution</label>
                             <input type="text" class="form-control" name="courseInstitution[]" placeholder="college name" required>
+                            <div class="invalid-feedback">invalid field</div>
                         </div>
                         <div class="form-group">
                             <label for="degree">Degree</label>
                             <input type="text" class="form-control" name="courseDegree[]" placeholder="college degree" required>
+                            <div class="invalid-feedback">invalid field</div>
                         </div>
                         <div class="form-group">
                             <label for="year">Year</label>
                             <input type="number" class="form-control" name="courseYear[]" placeholder="course year" required>
+                            <div class="invalid-feedback">invalid field</div>
                         </div>
                         <div class="form-group">
                             <label for="degree">Degree Type</label>
                             <input type="text" class="form-control" name="coursedegreeType[]" placeholder="Masters | Gradudation" required>
+                            <div class="invalid-feedback">invalid field</div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-outline-danger h-75" onclick="removeEducation(this)">Remove</button>
