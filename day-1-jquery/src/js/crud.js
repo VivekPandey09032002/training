@@ -15,6 +15,8 @@ $(document).ready(function () {
     if (!isEmpty(jsonData) && isValid()) {
       addDataToModal(jsonData);
       modalElement.modal("show");
+    } else {
+      e.stopPropagation();
     }
     // ajax call to url
     // sendData(jsonData);
@@ -118,7 +120,7 @@ $(document).ready(function () {
   $("#resetBtn").click(function () {
     formElement[0].reset();
     formElement.removeClass("was-validated");
-    formElement.addClass("needs-validation");
+    formElement.addClass("needs-validations");
     $.each(formElement[0], function () {
       $(this).removeClass("is-invalid");
     });
