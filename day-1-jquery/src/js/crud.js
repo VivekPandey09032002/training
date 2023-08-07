@@ -120,7 +120,7 @@ $(document).ready(function () {
   $("#resetBtn").click(function () {
     formElement[0].reset();
     formElement.removeClass("was-validated");
-    formElement.addClass("needs-validations");
+    formElement.addClass("needs-validation");
     $.each(formElement[0], function () {
       $(this).removeClass("is-invalid");
     });
