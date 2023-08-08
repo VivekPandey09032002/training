@@ -1,0 +1,25 @@
+<hr />
+<h3>counter example</h3>
+<div class="container">
+  <h1 class="text-muted">
+    Current count : <span class="badge bg-info">{{ counter }}</span>
+  </h1>
+  <div class="row">
+    <div class="col-md-2 gx-1">
+      <button
+        class="btn btn-outline-secondary btn-lg btn-block"
+        (click)="increment()"
+      >
+        Increment
+      </button>
+    </div>
+    <div class="col-md-2">
+      <button
+        class="btn btn-outline-danger btn-lg btn-block"
+        (click)="decrement()"
+      >
+        Decrement
+      </button>
+    </div>
+  </div>
+</div>
