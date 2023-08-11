@@ -1,0 +1,19 @@
+<h1 class="text-muted text-center">Selector example</h1>
+<div class="container">
+  <app-html-selector></app-html-selector>
+  <div app-attr-selector></div>
+  <div id="app-css-selector"></div>
+</div>
+<hr />
+<h1 class="text-muted text-center">Directive example</h1>
+<!-- custom directive -->
+<app-attr-directive></app-attr-directive>
+<h3 class="p-3">Custom Directive</h3>
+<h1
+  appChangeColor
+  [app-in-color]="'green'"
+  [app-out-color]="'purple'"
+  class="text-center p-3"
+>
+  Changed div color using directive
+</h1>

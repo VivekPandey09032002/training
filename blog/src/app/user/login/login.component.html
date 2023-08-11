@@ -9,8 +9,6 @@
       #box
     />
   </div>
-  <button class="btn btn-primary" (click)="getName('vivek pandey')">
-    click me
-  </button>
+  <button class="btn btn-primary" (click)="getName(box.value)">click me</button>
   <h1 #name (mousemove)="printValue(name.innerText)">hello World</h1>
 </div>

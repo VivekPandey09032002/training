@@ -35,8 +35,112 @@
     }
   ],
   "names": [
-    { "name": "Vivek pandey" },
-    { "name": "Vishal pandey" },
-    { "name": "Anup Mishra" }
+    {
+      "name": "Vivek pandey"
+    },
+    {
+      "name": "Vishal pandey"
+    },
+    {
+      "name": "Anup Mishra"
+    }
+  ],
+  "employees": [
+    {
+      "firstName": "vivek",
+      "lastName": "pandey",
+      "email": "1@gmail.com",
+      "dob": "2023-08-10T18:30:00.000Z",
+      "gender": "male",
+      "education": "Diploma",
+      "company": "nucelus",
+      "experience": 5,
+      "emppackage": 10,
+      "id": 1
+    },
+    {
+      "firstName": "vishal",
+      "lastName": "pandey",
+      "email": "2@gmail.com",
+      "dob": "2023-08-11T18:30:00.000Z",
+      "gender": "male",
+      "education": "Diploma",
+      "company": "abc",
+      "experience": 5,
+      "emppackage": 10,
+      "id": 2
+    },
+    {
+      "firstName": "anup",
+      "lastName": "kumar",
+      "email": "3@gmail.com",
+      "dob": "2023-08-10T18:30:00.000Z",
+      "gender": "male",
+      "education": "Graduate",
+      "company": "xyz",
+      "experience": 5,
+      "emppackage": 5,
+      "id": 3
+    },
+    {
+      "firstName": "shivam",
+      "lastName": "garg",
+      "email": "4@gmail.com",
+      "dob": "2023-08-11T18:30:00.000Z",
+      "gender": "female",
+      "education": "Diploma",
+      "company": "accenture",
+      "experience": 6,
+      "emppackage": 4,
+      "id": 4
+    },
+    {
+      "firstName": "Alice",
+      "lastName": "Smith",
+      "email": "5@gmail.com",
+      "dob": "1985-03-15T10:00:00.000Z",
+      "gender": "female",
+      "education": "Intermediate",
+      "company": "TechCorp",
+      "experience": 8,
+      "emppackage": 80,
+      "id": 5
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Johnson",
+      "email": "6@example.com",
+      "dob": "1990-06-25T15:45:00.000Z",
+      "gender": "male",
+      "education": "Diploma",
+      "company": "InnovateTech",
+      "experience": 12,
+      "emppackage": 120,
+      "id": 6
+    },
+    {
+      "firstName": "Ella",
+      "lastName": "Brown",
+      "email": "7@example.com",
+      "dob": "1988-11-05T08:20:00.000Z",
+      "gender": "female",
+      "education": "Diploma",
+      "company": "abc",
+      "experience": 6,
+      "emppackage": 65,
+      "id": 7
+    },
+    {
+      "firstName": "vivek",
+      "lastName": "pandey",
+      "email": "1@gmail.com",
+      "dob": "2023-08-03T18:30:00.000Z",
+      "gender": "male",
+      "education": "Intermediate",
+      "company": "kcc",
+      "experience": 10,
+      "emppackage": 20,
+      "id": 8
+    }
   ]
 }

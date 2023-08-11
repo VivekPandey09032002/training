@@ -1,0 +1,71 @@
+<!-- Attribute directives listen to and modify the behavior of other HTML elements, attributes, properties, and components.
+eg. ngClass , ngStyle, ngStyle
+-->
+
+<!-- property bind [ngClass] -->
+<h3
+  [ngStyle]="isFade ? currentStyle : { transition: 'opacity 2s ease-out' }"
+  [ngClass]="isCenter ? 'text-center text-primary' : ''"
+  #content
+>
+  Attribute directives example
+</h3>
+<div class="row gx-5">
+  <div class="col-4"></div>
+  <div class="col-2">
+    <button
+      class="btn btn-outline-info text-center"
+      (click)="isCenter = !isCenter"
+    >
+      Toogle center
+    </button>
+  </div>
+  <div class="col-2">
+    <button
+      class="col btn btn-outline-warning text-center"
+      (click)="isFade = !isFade"
+    >
+      Toogle fade
+    </button>
+  </div>
+</div>
+
+<!-- two way binding -->
+<div class="row">
+  <div class="col-3"></div>
+  <div class="mb-3 col-6">
+    <label for="name" class="form-label">User Name</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="vivek pandey"
+      [(ngModel)]="userName"
+    />
+    <h5>Two way binding : {{ userName }}</h5>
+  </div>
+</div>
+
+<!-- structural directive -->
+<!-- Structural directives are responsible for HTML layout. They shape or reshape the DOM's structure, typically by adding, removing, and manipulating the host elements to which they are attached. -->
+<!-- *ngFor *ngIf *ngSwitch -->
+<h3>Structural directive</h3>
+<div class="container">
+  <div class="row gap-5">
+    <!-- ngFor can manupulate data -->
+    <div class="card" style="width: 18rem" *ngFor="let language of languages">
+      <img
+        class="card-img-top"
+        src="../../../assets/{{ language.url }}"
+        alt="Card image cap"
+        height="200px"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ language.title }}</h5>
+        <p class="card-text">{{ language.content }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
