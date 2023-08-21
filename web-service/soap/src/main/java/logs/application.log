@@ -11,3 +11,6 @@
 2023-08-21 16:10:53.529 INFO  StartupInfoLogger.logStarting - Starting SoapApplication using Java 18.0.1.1 on NB1490 with PID 27772 (C:\Users\vivek.pandey\Desktop\training\web-service\soap\target\classes started by vivek.pandey in C:\Users\vivek.pandey\Desktop\training\web-service\soap)
 2023-08-21 16:10:53.530 INFO  SpringApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
 2023-08-21 16:10:54.578 INFO  StartupInfoLogger.logStarted - Started SoapApplication in 1.101 seconds (JVM running for 116.73)
+2023-08-21 16:11:47.869 INFO  StartupInfoLogger.logStarting - Starting SoapApplication using Java 18.0.1.1 on NB1490 with PID 17588 (C:\Users\vivek.pandey\Desktop\training\web-service\soap\target\classes started by vivek.pandey in C:\Users\vivek.pandey\Desktop\training\web-service\soap)
+2023-08-21 16:11:47.886 INFO  SpringApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2023-08-21 16:11:56.507 INFO  StartupInfoLogger.logStarted - Started SoapApplication in 9.528 seconds (JVM running for 12.018)
