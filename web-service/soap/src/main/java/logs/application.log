@@ -1,0 +1,13 @@
+2023-08-21 16:09:22.053 WARN  ArticleEndpoint.addArticle - Same article found!!! title : third article, category: entertainment
+2023-08-21 16:10:01.747 INFO  StartupInfoLogger.logStarting - Starting SoapApplication using Java 18.0.1.1 on NB1490 with PID 27772 (C:\Users\vivek.pandey\Desktop\training\web-service\soap\target\classes started by vivek.pandey in C:\Users\vivek.pandey\Desktop\training\web-service\soap)
+2023-08-21 16:10:01.750 INFO  SpringApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2023-08-21 16:10:03.034 INFO  StartupInfoLogger.logStarted - Started SoapApplication in 1.353 seconds (JVM running for 65.186)
+2023-08-21 16:10:09.531 INFO  ArticleEndpoint.addArticle - calling add article
+2023-08-21 16:10:09.555 WARN  ArticleEndpoint.addArticle - Same article found!!! title : third article, category: entertainment
+2023-08-21 16:10:09.557 INFO  ArticleEndpoint.addArticle - Saved the article
+2023-08-21 16:10:48.078 INFO  StartupInfoLogger.logStarting - Starting SoapApplication using Java 18.0.1.1 on NB1490 with PID 27772 (C:\Users\vivek.pandey\Desktop\training\web-service\soap\target\classes started by vivek.pandey in C:\Users\vivek.pandey\Desktop\training\web-service\soap)
+2023-08-21 16:10:48.079 INFO  SpringApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2023-08-21 16:10:49.787 INFO  StartupInfoLogger.logStarted - Started SoapApplication in 1.772 seconds (JVM running for 111.938)
+2023-08-21 16:10:53.529 INFO  StartupInfoLogger.logStarting - Starting SoapApplication using Java 18.0.1.1 on NB1490 with PID 27772 (C:\Users\vivek.pandey\Desktop\training\web-service\soap\target\classes started by vivek.pandey in C:\Users\vivek.pandey\Desktop\training\web-service\soap)
+2023-08-21 16:10:53.530 INFO  SpringApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2023-08-21 16:10:54.578 INFO  StartupInfoLogger.logStarted - Started SoapApplication in 1.101 seconds (JVM running for 116.73)
