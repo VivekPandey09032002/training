@@ -14,3 +14,142 @@
 2023-08-21 16:11:47.869 INFO  StartupInfoLogger.logStarting - Starting SoapApplication using Java 18.0.1.1 on NB1490 with PID 17588 (C:\Users\vivek.pandey\Desktop\training\web-service\soap\target\classes started by vivek.pandey in C:\Users\vivek.pandey\Desktop\training\web-service\soap)
 2023-08-21 16:11:47.886 INFO  SpringApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
 2023-08-21 16:11:56.507 INFO  StartupInfoLogger.logStarted - Started SoapApplication in 9.528 seconds (JVM running for 12.018)
+2023-08-21 16:16:37.072 INFO  StartupInfoLogger.logStarting - Starting SoapApplication using Java 18.0.1.1 on NB1490 with PID 17588 (C:\Users\vivek.pandey\Desktop\training\web-service\soap\target\classes started by vivek.pandey in C:\Users\vivek.pandey\Desktop\training\web-service\soap)
+2023-08-21 16:16:37.135 INFO  SpringApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2023-08-21 16:16:45.896 INFO  StartupInfoLogger.logStarted - Started SoapApplication in 9.033 seconds (JVM running for 301.406)
+2023-08-21 16:17:24.230 INFO  StartupInfoLogger.logStarting - Starting SoapApplication using Java 18.0.1.1 on NB1490 with PID 14768 (C:\Users\vivek.pandey\Desktop\training\web-service\soap\target\classes started by vivek.pandey in C:\Users\vivek.pandey\Desktop\training\web-service\soap)
+2023-08-21 16:17:24.248 INFO  SpringApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2023-08-21 16:17:35.047 INFO  StartupInfoLogger.logStarted - Started SoapApplication in 11.705 seconds (JVM running for 13.849)
+2023-08-21 16:17:48.155 INFO  ArticleEndpoint.addArticle - calling add article
+2023-08-21 16:17:48.381 WARN  ArticleEndpoint.addArticle - Same article found!!! title : third article, category: entertainment
+2023-08-21 16:17:58.698 INFO  ArticleEndpoint.addArticle - calling add article
+2023-08-21 16:17:58.772 INFO  ArticleEndpoint.addArticle - Saved the article
+2023-08-21 16:18:03.568 INFO  ArticleEndpoint.getAllArticles - Getting all the articles
+2023-08-21 16:18:03.580 WARN  ArticleEndpoint.getAllArticles - Total article found: 3
+2023-08-21 16:18:12.407 INFO  ArticleEndpoint.addArticle - calling add article
+2023-08-21 16:18:12.409 WARN  ArticleEndpoint.addArticle - Same article found!!! title : fourth article, category: entertainment
+2023-08-21 16:18:21.021 INFO  ArticleEndpoint.addArticle - calling add article
+2023-08-21 16:18:21.028 INFO  ArticleEndpoint.addArticle - Saved the article
+2023-08-21 16:18:30.726 INFO  ArticleEndpoint.getArticle - Getting article with id: 1
+2023-08-21 16:18:30.753 WARN  DetailSoapFaultDefinitionExceptionResolver.customizeFault - Exception processed 
+com.vivek.soap.exception.CustomException: ARTICLE NOT FOUND
+	at com.vivek.soap.service.ArticleService.lambda$0(ArticleService.java:29) ~[classes/:?]
+	at java.util.Optional.orElseThrow(Optional.java:403) ~[?:?]
+	at com.vivek.soap.service.ArticleService.getArticleById(ArticleService.java:25) ~[classes/:?]
+	at com.vivek.soap.endpoints.ArticleEndpoint.getArticle(ArticleEndpoint.java:30) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.ws.server.endpoint.MethodEndpoint.invoke(MethodEndpoint.java:133) ~[spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.server.endpoint.adapter.DefaultMethodEndpointAdapter.invokeInternal(DefaultMethodEndpointAdapter.java:285) ~[spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.server.endpoint.adapter.AbstractMethodEndpointAdapter.invoke(AbstractMethodEndpointAdapter.java:54) ~[spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.server.MessageDispatcher.dispatch(MessageDispatcher.java:230) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.server.MessageDispatcher.receive(MessageDispatcher.java:174) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.transport.support.WebServiceMessageReceiverObjectSupport.handleConnection(WebServiceMessageReceiverObjectSupport.java:88) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.transport.http.WebServiceMessageReceiverHandlerAdapter.handle(WebServiceMessageReceiverHandlerAdapter.java:60) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.transport.http.MessageDispatcherServlet.doService(MessageDispatcherServlet.java:288) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.10.jar:5.3.10]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.53.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.10.jar:5.3.10]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.53.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-08-21 16:18:42.976 WARN  ArticleEndpoint.deleteArticle - Cannot find article with id: 3
+2023-08-21 16:18:50.521 INFO  ArticleEndpoint.deleteArticle - deleted the article
+2023-08-22 10:23:06.427 INFO  ArticleEndpoint.getAllArticles - Getting all the articles
+2023-08-22 10:23:06.475 WARN  ArticleEndpoint.getAllArticles - Total article found: 3
+2023-08-22 10:30:31.748 INFO  ArticleEndpoint.getAllArticles - Getting all the articles
+2023-08-22 10:30:31.751 WARN  ArticleEndpoint.getAllArticles - Total article found: 3
+2023-08-22 10:31:08.374 INFO  ArticleEndpoint.addArticle - calling add article
+2023-08-22 10:31:08.376 WARN  ArticleEndpoint.addArticle - Same article found!!! title : fiveth article, category: entertainment
+2023-08-22 10:31:20.750 INFO  ArticleEndpoint.addArticle - calling add article
+2023-08-22 10:31:20.757 INFO  ArticleEndpoint.addArticle - Saved the article
+2023-08-22 10:38:51.439 WARN  ArticleEndpoint.addArticle - Same article found!!! title : sixth article, category: entertainment
+2023-08-22 10:39:37.957 WARN  ArticleEndpoint.getAllArticles - Total article found: 4
+2023-08-22 10:40:22.951 WARN  DetailSoapFaultDefinitionExceptionResolver.customizeFault - Exception processed 
+com.vivek.soap.exception.CustomException: ARTICLE NOT FOUND
+	at com.vivek.soap.service.ArticleService.lambda$0(ArticleService.java:29) ~[classes/:?]
+	at java.util.Optional.orElseThrow(Optional.java:403) ~[?:?]
+	at com.vivek.soap.service.ArticleService.getArticleById(ArticleService.java:25) ~[classes/:?]
+	at com.vivek.soap.endpoints.ArticleEndpoint.getArticle(ArticleEndpoint.java:30) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.ws.server.endpoint.MethodEndpoint.invoke(MethodEndpoint.java:133) ~[spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.server.endpoint.adapter.DefaultMethodEndpointAdapter.invokeInternal(DefaultMethodEndpointAdapter.java:285) ~[spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.server.endpoint.adapter.AbstractMethodEndpointAdapter.invoke(AbstractMethodEndpointAdapter.java:54) ~[spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.server.MessageDispatcher.dispatch(MessageDispatcher.java:230) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.server.MessageDispatcher.receive(MessageDispatcher.java:174) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.transport.support.WebServiceMessageReceiverObjectSupport.handleConnection(WebServiceMessageReceiverObjectSupport.java:88) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.transport.http.WebServiceMessageReceiverHandlerAdapter.handle(WebServiceMessageReceiverHandlerAdapter.java:60) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.ws.transport.http.MessageDispatcherServlet.doService(MessageDispatcherServlet.java:288) [spring-ws-core-3.1.1.jar:?]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.10.jar:5.3.10]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.10.jar:5.3.10]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.53.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.10.jar:5.3.10]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.53.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.10.jar:5.3.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.10.jar:5.3.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.53.jar:9.0.53]
+	at java.lang.Thread.run(Thread.java:833) [?:?]
+2023-08-22 10:41:06.768 WARN  ArticleEndpoint.updateArticle - Cannot find article with id: 1
+2023-08-22 10:42:37.409 WARN  ArticleEndpoint.updateArticle - Cannot find article with id: 1

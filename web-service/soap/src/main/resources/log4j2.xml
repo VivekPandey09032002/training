@@ -34,7 +34,7 @@
         </RollingFile>
 
         <!-- File Appender for general logs -->
-        <RollingFile name="ConsoleFile" fileName="${LOG_PATH}/console.log" filePattern="${LOG_PATH}/application.%d{yyyy-MM-dd}.log">
+        <RollingFile name="ConsoleFile" fileName="${LOG_PATH}/console.log" filePattern="${LOG_PATH}/console.%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %C{1}.%M - %msg%n" />
             <Policies>
                 <!-- Rolling based on date, creating a new log file every day -->
@@ -60,8 +60,9 @@
         <!-- Add other loggers for your application if needed -->
         <!-- For example, you can add a custom logger for your web components with warn level -->
         <!-- change it to your package base name -->
-        <Logger name="com.vivek.soap" level="info" additivity="false">
+        <Logger name="com.vivek.soap" level="warn" additivity="false">
             <AppenderRef ref="AppLogFile" />
+            <AppenderRef ref="Console" />
         </Logger>
 
     </Loggers>
