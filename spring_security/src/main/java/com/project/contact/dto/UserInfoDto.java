@@ -3,6 +3,7 @@ package com.project.contact.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.project.contact.enums.UserRole;
 import com.project.contact.validation.EnumNamePattern;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
@@ -16,6 +17,7 @@ public class UserInfoDto {
     @Pattern(regexp = "^[a-zA-Z][a-zA-Z0-9_-]{0,29}$", message = "{user.invalid.name.pattern}")
     @JsonProperty("user-name")
     private String userName;
+    @Email(message = "{user.invalid.email.pattern}")
     private String email;
     @NotBlank(message = "{user.invalid.password.blank}")
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&^#])[A-Za-z\\d@$!%*?&^#]{8,}$", message = "{user.invalid.password.pattern}")

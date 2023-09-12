@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>contact</name>
-	<description>Demo project for Spring Boot</description>
+	<description>production ready spring boot application with jwt token</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -87,6 +87,11 @@
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.10</version>
 		</dependency>
 	</dependencies>
 	<build>

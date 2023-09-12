@@ -27,21 +27,22 @@ public class StudentController {
 	public ResponseEntity<JsonResponse<Student>> saveStudent(@Valid @RequestBody StudentDto dto) {
 		Student student =  mapper.map(dto, Student.class);
 		student =  studentService.save(student);
-		return ResponseEntity.ok(new JsonResponse<>(student, HttpStatus.FOUND, "successfully save the student"));
+		return ResponseEntity.status(HttpStatus.CREATED).body(new JsonResponse<>(student, HttpStatus.CREATED, "successfully save the student"));
 	}
 	
 	@GetMapping("{name}")
 	public ResponseEntity<JsonResponse<StudentDto>> getStudentByName(@PathVariable String name  ){
 		Student student =  studentService.get(name);
 		StudentDto studentDto =  mapper.map(student, StudentDto.class);
-		return ResponseEntity.ok(new JsonResponse<>(studentDto, HttpStatus.FOUND, "successfully found the student"));
+		return ResponseEntity.status(HttpStatus.FOUND).body(new JsonResponse<>(studentDto, HttpStatus.FOUND, "successfully found the student"));
 	}
 	
 	@GetMapping
+	@PreAuthorize("hasAuthority('FULL')")
 	public ResponseEntity<JsonResponse<List<StudentDto>>> getStudents(){
 		List<Student> studentList =  studentService.getAll();
 		List<StudentDto> studentDto =  studentList.stream().map( student -> mapper.map(student, StudentDto.class)).toList();
-		return ResponseEntity.ok(new JsonResponse<>(studentDto, HttpStatus.FOUND, "successfully found the student"));
+		return ResponseEntity.status(HttpStatus.FOUND).body(new JsonResponse<>(studentDto, HttpStatus.FOUND, "successfully found all the student"));
 	}
 	
 	@DeleteMapping("{name}")
@@ -49,7 +50,7 @@ public class StudentController {
 	public ResponseEntity<JsonResponse<StudentDto>> deleteUserByName(@PathVariable String name  ){
 		Student student =  studentService.delete(name);
 		StudentDto studentDto =  mapper.map(student, StudentDto.class);
-		return ResponseEntity.ok(new JsonResponse<>(studentDto, HttpStatus.ACCEPTED, "successfully delete the student"));
+		return ResponseEntity.status(HttpStatus.FOUND).body(new JsonResponse<>(studentDto, HttpStatus.FOUND, "successfully delete the student"));
 	}
 	
 	@PutMapping("{id}")
@@ -58,7 +59,7 @@ public class StudentController {
 		Student student =  mapper.map(dto, Student.class);
 		student.setId(id);
 		student =  studentService.update(student);
-		return ResponseEntity.ok(new JsonResponse<>(student, HttpStatus.FOUND, "successfully updated the student"));
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(new JsonResponse<>(student, HttpStatus.ACCEPTED, "successfully updated the student"));
 	}
 	
 	

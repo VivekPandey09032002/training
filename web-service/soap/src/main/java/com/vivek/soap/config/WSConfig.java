@@ -21,6 +21,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/**
+ * The type Ws config.
+ */
 @Configuration
 @EnableWs
 public class WSConfig extends WsConfigurerAdapter {

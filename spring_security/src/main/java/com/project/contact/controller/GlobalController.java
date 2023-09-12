@@ -41,7 +41,7 @@ public class GlobalController {
                 .filter(Objects::nonNull)
                 .toList();
         ErrorResponse errorResponse = ErrorResponse.builder()
-                .status(HttpStatus.BAD_REQUEST).message("not a valid dto".toUpperCase(Locale.ROOT))
+                .status(HttpStatus.BAD_REQUEST).message("Validate the JSON object".toUpperCase(Locale.ROOT))
                 .errors(validationErrors)
                 .build();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
@@ -65,7 +65,7 @@ public class GlobalController {
     public ResponseEntity<ApiResponse> badCredentialsException(BadCredentialsException ex){
         ApiResponse errorResponse = ApiResponse.builder()
                 .path(getRequestPath())
-                .statusCode(HttpStatus.BAD_REQUEST)
+                .statusCode(HttpStatus.UNAUTHORIZED)
                 .timestamp(LocalDateTime.now())
                 .message(ex.getMessage())
                 .build();
@@ -76,7 +76,7 @@ public class GlobalController {
     public ResponseEntity<ApiResponse> accessDeniedException(AccessDeniedException ex){
         ApiResponse errorResponse = ApiResponse.builder()
                 .path(getRequestPath())
-                .statusCode(HttpStatus.BAD_REQUEST)
+                .statusCode(HttpStatus.FORBIDDEN)
                 .timestamp(LocalDateTime.now())
                 .message(ex.getMessage())
                 .build();
@@ -104,6 +104,15 @@ public class GlobalController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
-
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ApiResponse> generalException(Exception ex){
+        ApiResponse errorResponse = ApiResponse.builder()
+                .path(getRequestPath())
+                .statusCode(HttpStatus.BAD_REQUEST)
+                .timestamp(LocalDateTime.now())
+                .message(ex.getMessage())
+                .build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+    }
 
 }

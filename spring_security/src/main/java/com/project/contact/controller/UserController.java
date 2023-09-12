@@ -10,7 +10,11 @@ import com.project.contact.service.UserInfoService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,9 +34,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UserController {
-	
+	private final PropertiesConfiguration propertiesConfiguration;
 	private final UserInfoService userService;
 	private final TokenRepository tokenRepository;
 	private final ModelMapper mapper;
@@ -41,8 +45,13 @@ public class UserController {
 	private final PasswordEncoder encoder;
 	private final AuthenticationManager authenticationManager;
 
+	@RequestMapping("/testing")
+	public String test(){
+		return propertiesConfiguration.getString("my.dynamic.properties");
+	}
 
-	private String getRequestPath() {
+
+	public static String getRequestPath() {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
 		return request.getRequestURI();
 	}
@@ -63,7 +72,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/logout")
-	public ResponseEntity<String> userLogOuts(HttpServletRequest request){
+	public ResponseEntity<ApiResponse> userLogOuts(HttpServletRequest request){
 		final String authHeader = request.getHeader("Authorization");
 		if(authHeader == null || !authHeader.startsWith("Bearer ")) {
 			ErrorResponse errorResponse =  ErrorResponse.builder().message("logout failed").errors(Collections.singletonList("No authentication header found")).build();
@@ -73,21 +82,19 @@ public class UserController {
 		final String userName = jwtService.extractUsername(jwt);
 		List<Token> tokenList =  tokenRepository.findTokenByUserName(userName).stream().map( t -> new Token(t.getTokenId(),t.getTokenStr(), true, true, t.getUser())).toList();
 		tokenRepository.saveAll(tokenList);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body("logout successfully");
+		ApiResponse apiResponse = ApiResponse.builder()
+				.timestamp(LocalDateTime.now())
+				.message("logout successfully")
+				.statusCode(HttpStatus.ACCEPTED)
+				.path(getRequestPath())
+				.build();
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(apiResponse);
 	}
 	
 	@PostMapping("/login")
 	public ResponseEntity<JsonResponse<String>> loginUser(@Valid @RequestBody UserLoginRequest dto){
 		// authenticate the user
-//		UserInfo userInfo =  userService.get(dto.getUserName());
-//		if(!encoder.matches(dto.getPassword(),userInfo.getPassword())) {
-//			ErrorResponse errorResponse =  ErrorResponse.builder().message("username or password is not valid").status(HttpStatus.FORBIDDEN).build();
-//			throw new CustomException(errorResponse);
-//		}
-
-		Authentication authentication = new UsernamePasswordAuthenticationToken(
-				dto.getUserName(), dto.getPassword());
-
+		Authentication authentication = new UsernamePasswordAuthenticationToken(dto.getUserName(), dto.getPassword());
 		authentication = authenticationManager.authenticate(authentication);
 		if(!authentication.isAuthenticated())
 			throw new UsernameNotFoundException("invalid user request !");
@@ -96,14 +103,14 @@ public class UserController {
 		Token token =generateJwtToken(userInfo);
 		//saving token to database
 		tokenRepository.save(token);
-		return ResponseEntity.ok(new JsonResponse<>(token.getTokenStr(), HttpStatus.CREATED, "use this token to access protected end points"));
+		return ResponseEntity.status(HttpStatus.CREATED).body(new JsonResponse<>(token.getTokenStr(), HttpStatus.CREATED, "use this token to access protected end points"));
 	}
 	
 	@GetMapping("{name}")
 	public ResponseEntity<JsonResponse<UserResponse>> getUserByName(@PathVariable String name  ){
 		UserInfo user =  userService.get(name);
 		UserResponse userInfoDto =  mapper.map(user, UserResponse.class);
-		return ResponseEntity.ok(new JsonResponse<>(userInfoDto, HttpStatus.FOUND, "successfully found the user"));
+		return ResponseEntity.status(HttpStatus.FOUND).body(new JsonResponse<>(userInfoDto, HttpStatus.FOUND, "successfully found the user"));
 	}
 	
 	@GetMapping
@@ -111,7 +118,7 @@ public class UserController {
 		List<UserInfo> userList = userService.getAll();
 		List<UserResponse> userInfoDtoList =  userList.stream().map((user) -> mapper.map(user, UserResponse.class))
 						 .toList();
-		return ResponseEntity.ok(new JsonResponse<>(userInfoDtoList, HttpStatus.FOUND, "successfully found the user"));
+		return ResponseEntity.status(HttpStatus.FOUND).body(new JsonResponse<>(userInfoDtoList, HttpStatus.FOUND, "successfully found all the user"));
 	}
 	@DeleteMapping("{name}")
 	public ResponseEntity<JsonResponse<UserResponse>> deleteUserByName(@PathVariable String name  ){
@@ -119,7 +126,7 @@ public class UserController {
 		tokenRepository.deleteAll(userTokens);
 		UserInfo user =  userService.delete(name);
 		UserResponse userInfoDto =  mapper.map(user, UserResponse.class);
-		return ResponseEntity.ok(new JsonResponse<>(userInfoDto, HttpStatus.ACCEPTED, "successfully delete the user"));
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(new JsonResponse<>(userInfoDto, HttpStatus.ACCEPTED, "successfully delete the user"));
 	}
 	
 	private Token generateJwtToken(UserInfo userInfo) {

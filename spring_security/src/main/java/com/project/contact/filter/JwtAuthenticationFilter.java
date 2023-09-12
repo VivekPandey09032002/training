@@ -4,6 +4,7 @@ import com.project.contact.entity.Token;
 import com.project.contact.repo.TokenRepository;
 import com.project.contact.service.JwtService;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.security.SignatureException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -22,6 +23,8 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import java.io.IOException;
 import java.util.Optional;
+
+import static com.project.contact.controller.UserController.getRequestPath;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -43,14 +46,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(@NonNull HttpServletRequest request, HttpServletResponse response,
 			FilterChain filterChain) throws ServletException, IOException {
-		final String authHeader = request.getHeader("Authorization");
-		if(authHeader == null || !authHeader.startsWith("Bearer ")) {
-			filterChain.doFilter(request, response);
-			System.out.println("no header found");
-			return;
-		}
+
 
 		try {
+			final String authHeader = request.getHeader("Authorization");
+			if(authHeader == null || !authHeader.startsWith("Bearer ")) {
+				filterChain.doFilter(request, response);
+				if(getRequestPath().matches("^/api/student.*")) {
+					System.out.println("request path: " + getRequestPath());
+					throw new SignatureException("no bearer token found in the header");
+				}
+				return;
+			}
 			final String  jwt = authHeader.substring(7);
 			final String userName = jwtService.extractUsername(jwt);
 			if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
@@ -67,7 +74,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 				}
 				filterChain.doFilter(request, response);
 			}
-		}catch (ExpiredJwtException | SignatureException ex) {
+		}catch (ExpiredJwtException | SignatureException | MalformedJwtException ex) {
+			System.out.println("exception message" + ex.getMessage());
 			exceptionResolver.resolveException(request, response, null, ex);
 		}
 	}

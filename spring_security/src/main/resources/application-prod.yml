@@ -1,13 +1,9 @@
 server:
   port: 8080
 
-
-
 spring:
-  config:
-    location: file:src/main/resources/msg/message.properties
   messages:
-    basename: msg/validationMessage
+    basename: msg/validationMessage, msg/message
   servlet:
     multipart:
       enabled: true
