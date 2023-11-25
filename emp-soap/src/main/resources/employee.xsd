@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://vivek.com/employee"
+           xmlns="http://vivek.com/employee"
+           elementFormDefault="qualified">
+
+    <!-- Employee Type Definition -->
+    <xs:complexType name="Employee">
+        <xs:sequence>
+            <xs:element name="employeeID" type="xs:int"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="position" type="xs:string"/>
+            <xs:element name="salary" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- CRUD Request Types -->
+    <xs:complexType name="CreateRequest">
+        <xs:sequence>
+            <xs:element name="employee" type="Employee"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ReadRequest">
+        <xs:sequence>
+            <xs:element name="employeeID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UpdateRequest">
+        <xs:sequence>
+            <xs:element name="employee" type="Employee"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DeleteRequest">
+        <xs:sequence>
+            <xs:element name="employeeID" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Show Employee Details Response Type -->
+    <xs:complexType name="ShowEmployeeDetailsResponse">
+        <xs:sequence>
+            <xs:element name="success" type="xs:boolean"/>
+            <xs:element name="message" type="xs:string"/>
+            <xs:element name="employee" type="Employee" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Root Element -->
+    <xs:element name="crudOperations">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="create" type="CreateRequest"/>
+                <xs:element name="read" type="ReadRequest"/>
+                <xs:element name="update" type="UpdateRequest"/>
+                <xs:element name="delete" type="DeleteRequest"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Root Element for Responses -->
+    <xs:element name="responses">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="showEmployeeDetailsResponse" type="ShowEmployeeDetailsResponse"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
