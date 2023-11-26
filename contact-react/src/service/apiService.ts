@@ -14,7 +14,6 @@ async function fetchData<T>(
 		},
 		...baseOptions,
 	};
-	console.log("fetching options", options);
 	try {
 		const response = await fetch(url, options);
 

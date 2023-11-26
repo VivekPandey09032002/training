@@ -7,8 +7,8 @@ import { getAllContact } from "../service/contactService";
 import { LoaderData } from "../types/type";
 
 export async function loader() {
-	const { data, error } = await getAllContact();
-	return { data, error };
+	console.log("HOME component loader runs..");
+	return getAllContact();
 }
 
 export default function Home() {

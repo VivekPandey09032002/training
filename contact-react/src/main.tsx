@@ -5,8 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home, { loader as contactLoader } from "./screen/Home.tsx";
 import SingleContact from "./components/SingleContact.tsx";
 import EditContact from "./components/EditContact.tsx";
-import AddContact from "./components/AddContact.tsx";
-import { loader as emptyLoader } from "./components/EmptyLoader.tsx";
+import AddContact, { action as addAction } from "./components/AddContact.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -15,11 +14,11 @@ const router = createBrowserRouter([
 		loader: contactLoader,
 		children: [
 			{
+				action: addAction,
 				path: "contact/add",
 				element: <AddContact />,
 			},
 			{
-				loader: emptyLoader,
 				path: "contact/edit/:id",
 				element: <EditContact />,
 			},

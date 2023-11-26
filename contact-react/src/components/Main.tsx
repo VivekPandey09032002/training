@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 type Props = {
 	className: string;
@@ -9,12 +9,9 @@ type Props = {
 export default function Main({ className, children }: Readonly<Props>) {
 	return (
 		<div className={className}>
-			<button
-				className='btn btn-link'
-				onClick={() => console.log("back")}
-			>
+			<NavLink to='..' relative={"path"} className='btn btn-link'>
 				Back
-			</button>
+			</NavLink>
 			{children}
 		</div>
 	);
