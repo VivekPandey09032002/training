@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SideBarTop = () => {
 	return (
 		<div className='flex gap-2'>
@@ -9,9 +11,9 @@ const SideBarTop = () => {
 				/>
 			</div>
 			<div>
-				<button className='btn btn-sm text-gray-600'>
+				<Link  to={"contact/add"} className='btn btn-sm text-gray-600'>
 					New Contact
-				</button>
+				</Link>
 			</div>
 		</div>
 	);

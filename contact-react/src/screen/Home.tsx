@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigation } from "react-router-dom";
+import { Outlet, useLoaderData, useNavigation } from "react-router-dom";
 import Main from "../components/Main";
 import SideBar from "../components/SideBar";
 import SideBarContact from "../components/SideBarContact";
@@ -28,7 +28,10 @@ export default function Home() {
 				<SideBarTop />
 				<SideBarContact contacts={data} />
 			</SideBar>
-			<Main className='p-2 flex-grow ml-2'></Main>
+
+			<Main className='p-2 flex-grow ml-2'>
+				<Outlet context={data} />
+			</Main>
 		</div>
 	);
 }

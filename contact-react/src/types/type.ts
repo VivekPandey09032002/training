@@ -4,7 +4,7 @@ export type Contact = {
 	id: number;
 	firstName: string;
 	lastName: string;
-	avatar: string;
+	avatar?: string;
 	twitter: string;
 	notes: string;
 	favorite: boolean;
