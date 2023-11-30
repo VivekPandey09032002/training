@@ -11,6 +11,7 @@ import UpdateContact, {
 } from "./components/UpdateContact.tsx";
 import DiceHomeScreeen from "./screen/DiceHomeScreeen.tsx";
 import GameScreen from "./screen/GameScreen.tsx";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
 	{

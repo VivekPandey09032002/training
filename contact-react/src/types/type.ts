@@ -1,5 +1,7 @@
 import { LoaderFunction } from "react-router-dom";
 
+export type GameLevel = "easy" | "medium" | "hard";
+
 export type Contact = {
 	id: number;
 	firstName: string;

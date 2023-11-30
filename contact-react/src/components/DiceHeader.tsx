@@ -3,7 +3,6 @@ type Props = {
 	dices: number[];
 	handleDiceSelection: (dice: number) => void;
 	currentSelectedDice: number;
-	
 };
 
 export default function DiceHeader({
@@ -12,7 +11,6 @@ export default function DiceHeader({
 	handleDiceSelection,
 	currentSelectedDice,
 }: Readonly<Props>) {
-	console.log("user dice selected", currentSelectedDice);
 	return (
 		<div
 			id='game-header'

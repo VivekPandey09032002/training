@@ -1,30 +1,40 @@
 import { useState } from "react";
 import DiceHeader from "../components/DiceHeader";
 import DiceBody from "../components/DiceBody";
+import { Id, ToastContainer, toast } from "react-toastify";
+import { useLocation } from "react-router-dom";
+import { GameLevel } from "../types/type";
 
 const diceNumbers = [1, 2, 3, 4, 5, 6];
 
 const GameScreen = () => {
+	let toastId: Id;
 	const [score, setScore] = useState(0);
 	const [userDice, setUserDice] = useState<number>(0);
-
-	const [systemDice, setSystemDice] = useState<number>(0);
+	const location = useLocation();
+	const level: GameLevel = location.state?.level;
 
 	function handleDiceClicked(dice: number) {
 		setUserDice(dice);
 	}
 
-	function calculateResult() {
-		if (userDice === 0) {
-			alert("select a number please");
+	function calculateResult(currentDice: number, targetDice: number) {
+		console.log(
+			`calcuate result currentDice: ${currentDice}, targetDice : ${targetDice}`
+		);
+		toast.dismiss(toastId);
+		if (currentDice == 0) {
+			toastId = toast.info("Select a dice number");
 			return;
 		}
 
-		if (userDice === systemDice) {
-			console.log("you win");
-			setScore((prev) => prev + userDice);
+		if (currentDice == targetDice) {
+			toastId = toast.success(`You won, point added ${userDice}`, {
+				position: "bottom-right",
+			});
+			setScore((prev) => prev + currentDice);
 		} else {
-			console.log("you loose");
+			toastId = toast.error(`You loose,Correct Dice: ${targetDice}`);
 			setScore((prev) => prev - 2);
 		}
 	}
@@ -32,7 +42,6 @@ const GameScreen = () => {
 	function resetScore() {
 		setScore(0);
 		setUserDice(0);
-		setSystemDice(0);
 	}
 	return (
 		<div>
@@ -44,10 +53,11 @@ const GameScreen = () => {
 			/>
 			<DiceBody
 				handleReset={resetScore}
-				systemDice={systemDice}
-				setSystemDice={setSystemDice}
+				userDice={userDice}
 				calculateResult={calculateResult}
+				level={level}
 			/>
+			<ToastContainer />
 		</div>
 	);
 };
