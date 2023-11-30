@@ -3,6 +3,11 @@ interface ApiResponse<T> {
 	error?: string;
 }
 
+
+
+
+
+
 async function fetchData<T>(
 	url: string,
 	baseOptions = {} as RequestInit

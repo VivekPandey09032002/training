@@ -1,5 +1,24 @@
-import { Link, useOutletContext, useParams } from "react-router-dom";
+import {
+	Form,
+	Link,
+	redirect,
+	useOutletContext,
+	useParams,
+} from "react-router-dom";
 import { Contact } from "../types/type";
+import { deleteContact } from "../service/contactService";
+
+export async function deleteAction({ params }) {
+	const id = +params.id;
+	console.log(id);
+	const data = await deleteContact(`http://localhost:3000/contacts/${id}`);
+	console.log(data);
+	if (!data.ok) {
+		return { error: data.statusText };
+	} else {
+		throw redirect("/");
+	}
+}
 
 export default function SingleContact() {
 	const data = useOutletContext<Contact[]>();
@@ -39,19 +58,16 @@ export default function SingleContact() {
 			<p>
 				Name : {contact.firstName} {contact.lastName}
 			</p>
-			<div className='bg-gray-400 h-full'>
+			<div className='h-full flex justify-center p-2'>
 				<Link
 					to={`/contact/edit/${contact.id}`}
 					className='btn btn-outline'
 				>
 					Edit
 				</Link>
-				<Link
-					to={`/contact/delete/${contact.id}`}
-					className='btn btn-error mx-4'
-				>
-					Delete
-				</Link>
+				<Form method='post'>
+					<button className='btn btn-error mx-4'>Delete</button>
+				</Form>
 			</div>
 		</div>
 	);

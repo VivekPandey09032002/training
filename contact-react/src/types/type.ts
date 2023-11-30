@@ -10,6 +10,15 @@ export type Contact = {
 	favorite: boolean;
 };
 
+type MyParam = {
+	id: string;
+};
+
+export type ActionType<T = MyParam> = {
+	request: Request;
+	params: T;
+};
+
 export type LoaderData<TLoaderFn extends LoaderFunction> = Awaited<
 	ReturnType<TLoaderFn>
 > extends Response | infer D

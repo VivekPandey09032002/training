@@ -3,9 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home, { loader as contactLoader } from "./screen/Home.tsx";
-import SingleContact from "./components/SingleContact.tsx";
-import EditContact from "./components/EditContact.tsx";
-import AddContact, { action as addAction } from "./components/AddContact.tsx";
+import SingleContact, { deleteAction } from "./components/SingleContact.tsx";
+import UpdateContact, {
+	action as addAction,
+	patchAction,
+	loader as updateLoader,
+} from "./components/UpdateContact.tsx";
+import DiceHomeScreeen from "./screen/DiceHomeScreeen.tsx";
+import GameScreen from "./screen/GameScreen.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -16,18 +21,29 @@ const router = createBrowserRouter([
 			{
 				action: addAction,
 				path: "contact/add",
-				element: <AddContact />,
+				element: <UpdateContact />,
 			},
 			{
 				path: "contact/edit/:id",
-				element: <EditContact />,
+				loader: updateLoader,
+				action: patchAction,
+				element: <UpdateContact type='edit' />,
 			},
 			{
 				path: "contact/:id",
+				action: deleteAction,
 				element: <SingleContact />,
 			},
 			{ index: true, element: <div>Home page</div> },
 		],
+	},
+	{
+		path: "/game/start",
+		element: <DiceHomeScreeen />,
+	},
+	{
+		path: "play",
+		element: <GameScreen />,
 	},
 ]);
 

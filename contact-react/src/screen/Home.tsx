@@ -7,7 +7,7 @@ import { getAllContact } from "../service/contactService";
 import { LoaderData } from "../types/type";
 
 export async function loader() {
-	console.log("HOME component loader runs..");
+	console.log("home component loader runs..");
 	return getAllContact();
 }
 
