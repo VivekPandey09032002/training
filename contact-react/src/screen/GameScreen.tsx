@@ -45,6 +45,12 @@ const GameScreen = () => {
 	}
 	return (
 		<div>
+			<h1 className='absolute p-5 font-semibold text-lg'>
+				Level :{" "}
+				<span className='font-bold text-red-500 uppercase'>
+					{level ? level : "default"}
+				</span>
+			</h1>
 			<DiceHeader
 				score={score}
 				dices={diceNumbers}
