@@ -48,7 +48,7 @@ const GameScreen = () => {
 			<h1 className='absolute p-5 font-semibold text-lg'>
 				Level :{" "}
 				<span className='font-bold text-red-500 uppercase'>
-					{level ? level : "default"}
+					{level || "default"}
 				</span>
 			</h1>
 			<DiceHeader

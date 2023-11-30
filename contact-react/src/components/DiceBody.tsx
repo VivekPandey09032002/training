@@ -21,7 +21,9 @@ export default function DiceBody({
 }: Readonly<Props>) {
 	const [toogleHelp, setToogleHelp] = useState(false);
 	const [systemDice, setSystemDice] = useState(0);
+	const [rotate, setRotate] = useState(false);
 	function handleImageClick() {
+		setRotate(!rotate);
 		const random = generateRandomNumberWithProbability(
 			userDice === 0 ? getRandomIntRange(6) : userDice,
 			level
@@ -34,7 +36,7 @@ export default function DiceBody({
 
 	return (
 		<>
-			<div className='container mx-auto card card-compact w-96 bg-base-100 shadow-xl'>
+			<div className='container mx-auto card card-compact max-w-[40rem] bg-base-100 shadow-xl '>
 				<figure>
 					<img
 						src={
@@ -45,6 +47,9 @@ export default function DiceBody({
 						alt='Dices'
 						onClick={handleImageClick}
 						onKeyDown={console.log}
+						className={`p-8 transition-all  duration-700 ${
+							rotate && "rotate"
+						}`}
 					/>
 				</figure>
 				<div className='card-body'>
@@ -67,7 +72,7 @@ export default function DiceBody({
 			{toogleHelp && (
 				<div
 					role='alert'
-					className='w-1/2 mx-auto mt-5  card bg-gray-300'
+					className='mx-auto mt-5  card bg-gray-300 max-w-[40rem]'
 				>
 					<div className='card-body'>
 						<span className='card-title'>

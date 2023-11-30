@@ -39,7 +39,7 @@ const DiceHomeScreeen = () => {
 						className='select w-full max-w-xs'
 						onChange={(e) => setLevel(e.target.value)}
 					>
-						<option disabled selected>
+						<option disabled selected value=''>
 							Select your level
 						</option>
 						<option value='easy'>Easy</option>

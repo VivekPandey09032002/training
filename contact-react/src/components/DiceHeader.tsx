@@ -14,15 +14,17 @@ export default function DiceHeader({
 	return (
 		<div
 			id='game-header'
-			className='container mx-auto flex justify-between'
+			className='container mx-auto grid grid-cols-1  lg:grid-cols-[minmax(200px,400px)_1fr] px-4'
 		>
-			<div id='game-score' className='relative flex-grow'>
-				<h1 className='text-[8rem] px-2'>{score}</h1>
-				<p className='absolute top-[9rem] font-semibold text-lg'>
-					Total Score
-				</p>
+			<div id='game-score'>
+				<h1 className='text-[9rem] px-2 text-center relative'>
+					{score}
+					<span className='font-semibold text-lg absolute left-[43%] md:left-[39%] bottom-5'>
+						Total Score
+					</span>
+				</h1>
 			</div>
-			<div id='dice-select' className='flex-grow my-auto'>
+			<div id='dice-select' className='my-14'>
 				<div className='flex gap-3'>
 					{dices.map((dice) => (
 						<button
@@ -36,7 +38,7 @@ export default function DiceHeader({
 						</button>
 					))}
 				</div>
-				<p className='text-end mt-2 mr-2 text-xl font-bold'>
+				<p className='text-end mt-7 mr-2 text-xl font-bold'>
 					Select Number
 				</p>
 			</div>
