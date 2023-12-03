@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import ErrorPage from "./screen/ErrorPage.tsx";
 import Home from "./screen/Home.tsx";
-import BaseScreen from "./screen/BaseScreen.tsx";
+import BaseScreen from "./BaseScreen.tsx";
 
 const router = createBrowserRouter([
 	{
