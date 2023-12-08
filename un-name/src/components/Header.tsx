@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { HEADER_TITLE, MENU_OPTIONS, THEME } from "../utils/Constants";
+import { HEADER_TITLE, THEME } from "../utils/Constants";
 
 const Header = () => {
 	const [theme, setTheme] = useState("");
