@@ -19,10 +19,12 @@ const Note = () => {
 	const { data: categories } = useQuery({
 		queryKey: ["category"],
 		queryFn: () => getAllCategory(),
+		staleTime: Infinity,
 	});
 	const location = useLocation();
 	const [formData, setFormData] = useState(intialState);
-	const { createMutation, updateMutation } = useMutateNote(setFormData);
+	const { createMutation, updateMutation, isPending } =
+		useMutateNote(setFormData);
 
 	function handleSubmit(e: FormEvent<HTMLFormElement>) {
 		e.preventDefault();
@@ -114,8 +116,15 @@ const Note = () => {
 								required
 							></textarea>
 						</div>
-						<button className='btn btn-accent w-full'>
-							Submit
+						<button
+							className='btn btn-accent w-full'
+							disabled={isPending}
+						>
+							{isPending ? (
+								<span className='loading loading-spinner loading-lg'></span>
+							) : (
+								<span>submit</span>
+							)}
 						</button>
 					</form>
 				</div>

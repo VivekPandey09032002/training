@@ -10,35 +10,42 @@ const useMutateNote = (
 ) => {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
-	const { mutate: createMutation } = useMutation({
-		mutationFn: (data: NoteType) => createNote(data),
-		onSuccess: () => {
-			toast.success("note has been been added");
-			setFormData(intialState);
-			queryClient.invalidateQueries({
-				queryKey: ["notes", { page: 1 }],
-			});
-			navigate(-1);
-		},
-		onError: () => {
-			toast.error("some error occurred by updating notes");
-		},
-	});
-	const { mutate: updateMutation } = useMutation({
-		mutationFn: (data: NoteType) => updateNote(data.id, data),
-		onSuccess: () => {
-			toast.success("note has been been updated");
-			setFormData(intialState);
-			queryClient.invalidateQueries({
-				queryKey: ["notes", { page: 1 }],
-			});
-			navigate(-1);
-		},
-		onError: () => {
-			toast.error("some error occurred by updating notes");
-		},
-	});
-	return { createMutation, updateMutation };
+	const { mutate: createMutation, isPending: createMutationPending } =
+		useMutation({
+			mutationFn: (data: NoteType) => createNote(data),
+			onSuccess: async () => {
+				toast.success("note has been been added");
+				setFormData(intialState);
+				await queryClient.invalidateQueries({
+					queryKey: ["notes"],
+					exact: false,
+				});
+				navigate(-1);
+			},
+			onError: () => {
+				toast.error("some error occurred by updating notes");
+			},
+		});
+	const { mutate: updateMutation, isPending: updateMutationPending } =
+		useMutation({
+			mutationFn: (data: NoteType) => updateNote(data.id, data),
+			onSuccess: async () => {
+				toast.success("note has been been updated");
+				setFormData(intialState);
+				await queryClient.invalidateQueries({
+					queryKey: ["notes"],
+					exact: false,
+				});
+				navigate(-1);
+			},
+			onError: () => {
+				toast.error("some error occurred by updating notes");
+			},
+		});
+
+	const isPending = createMutationPending || updateMutationPending;
+
+	return { createMutation, updateMutation, isPending };
 };
 
 export default useMutateNote;

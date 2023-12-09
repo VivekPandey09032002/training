@@ -7,6 +7,8 @@ type NoteType = {
 	updated_at?: string;
 };
 
+
+
 type CategoryType = {
 	id: number;
 	category_name: string;

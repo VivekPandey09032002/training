@@ -17,6 +17,7 @@ const SingleNote = ({ note }: Props) => {
 	const { data: category } = useQuery({
 		queryKey: [note.category],
 		queryFn: () => getCategoryById(note.category),
+		staleTime: Infinity,
 	});
 	//getting current params
 	const [searchParams] = useSearchParams();
@@ -37,7 +38,6 @@ const SingleNote = ({ note }: Props) => {
 	if (!isIdle) {
 		return <Skeleton />;
 	}
-
 
 	return (
 		<div className='card max-w-2xl w-[45rem] bg-accent text-secondary-content'>

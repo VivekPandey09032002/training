@@ -1,8 +1,12 @@
 import { CategoryType, NoteType } from "../types";
 
-export async function getAllNote(page = 1, limit = 5): Promise<NoteType[]> {
+export async function getAllNote(
+	page = 1,
+	limit = 5,
+	searchText = ""
+): Promise<NoteType[]> {
 	const data = await fetch(
-		`http://localhost:3000/notes?_page=${page}&_limit=${limit}`
+		`http://localhost:3000/notes?_page=${page}&_limit=${limit}&title_like=${searchText}`
 	);
 	if (!data.ok) {
 		throw new Error("cannot fetch notes");
