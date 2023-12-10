@@ -21,7 +21,7 @@
       "id": 5,
       "title": "Book List",
       "content": "Science fiction and mystery novels.",
-      "category": 2,
+      "category": 3,
       "created_at": "Sat Dec 09 2023",
       "updated_at": null
     },
@@ -29,8 +29,8 @@
       "id": 6,
       "title": "Travel Plans",
       "content": "Visit historical sites and museums.",
-      "category": 2,
-      "created_at": "Wed Dec 13 2023",
+      "category": 1,
+      "created_at": "Sat Dec 09 2023",
       "updated_at": "Thu Dec 14 2023"
     },
     {
@@ -38,7 +38,7 @@
       "title": "Birthday Gift Ideas",
       "content": "Books, gadgets, and accessories.",
       "category": 3,
-      "created_at": "Fri Dec 08 2023",
+      "created_at": "Sat Dec 09 2023",
       "updated_at": "Sat Dec 16 2023"
     },
     {

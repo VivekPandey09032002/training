@@ -40,7 +40,7 @@ const SingleNote = ({ note }: Props) => {
 	}
 
 	return (
-		<div className='card max-w-2xl w-[45rem] bg-accent text-secondary-content'>
+		<div className='card max-w-2xl w-[45rem] bg-accent text-secondary-content '>
 			<div className='card-body'>
 				<h2 className='card-title'>{note.title}</h2>
 				<p>{note.content}</p>

@@ -11,7 +11,8 @@ import { useState } from "react";
 function Home() {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [searchText, setSearchText] = useState("");
-	const searchDebounceText = useDebounce(searchText, 500);
+	// debounce time = {700} milliseconds
+	const searchDebounceText = useDebounce(searchText, 700);
 
 	const page = +(searchParams.get("_page") || 1);
 	const limit = +(searchParams.get("_limit") || 4);
@@ -23,7 +24,7 @@ function Home() {
 	} = useQuery({
 		queryKey: ["notes", { page, limit, searchText: searchDebounceText }],
 		queryFn: () => getAllNote(page, limit, searchDebounceText),
-		staleTime: 1000 * 60 * 5, // 5 min
+		staleTime: 1000 * 60 * 5, // 5 minutes data will be fresh after that refetchs
 	});
 	const handleNext = () => {
 		setSearchParams((prev) => ({
@@ -61,18 +62,20 @@ function Home() {
 
 				<Input setSearchText={setSearchText} />
 			</div>
+			{/* as state can be loading, error , success */}
 			{isLoading && <Skeleton size={4} />}
 			{isError && (
 				<Alert type='error'>
 					<span>{error.message}</span>
 				</Alert>
 			)}
-
+			{/* success case but not not to display */}
 			{notes && notes.length === 0 && (
 				<Alert type='info'>
 					<span>No Notes to display</span>
 				</Alert>
 			)}
+			{/* success and note to display */}
 			{notes &&
 				notes.map((note) => <SingleNote key={note.id} note={note} />)}
 		</main>

@@ -7,12 +7,16 @@ type NoteType = {
 	updated_at?: string;
 };
 
-
-
 type CategoryType = {
 	id: number;
 	category_name: string;
 	priority: string;
 };
 
-export type { NoteType, CategoryType };
+type AuthError = {
+	email?: string;
+	password?: string;
+	message?: string;
+};
+
+export type { NoteType, CategoryType, AuthError };

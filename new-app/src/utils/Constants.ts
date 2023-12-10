@@ -4,4 +4,6 @@ const links = [
 	{ path: "/", name: "Home", id: 0 },
 	{ path: "/note", name: "Add Note", id: 1 },
 ];
-export { LOGO, THEMES, links };
+
+const WHITELIST_URL = ["/login"];
+export { LOGO, THEMES, links, WHITELIST_URL };

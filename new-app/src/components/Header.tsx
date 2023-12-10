@@ -1,9 +1,26 @@
 import { ChangeEvent } from "react";
 import { LOGO, THEMES, links } from "../utils/Constants";
-import { NavLink } from "react-router-dom";
+import { Form, NavLink } from "react-router-dom";
 import useCustomTheme from "../hooks/useCustomTheme";
+import { supabase } from "../service/client";
+import { toast } from "react-toastify";
 
-const Header = () => {
+// eslint-disable-next-line react-refresh/only-export-components
+export async function action() {
+	console.log("logout");
+
+	const { error } = await supabase.auth.signOut();
+	if (error) {
+		toast.error(`Cannot logout because ${error.message}`);
+		return false;
+	} else {
+		toast.success("logout completed");
+	}
+
+	return true;
+}
+
+const Header = ({ loggedIn }: { loggedIn: boolean }) => {
 	const setTheme = useCustomTheme(THEMES);
 
 	function changeTheme(e: ChangeEvent<HTMLSelectElement>) {
@@ -51,6 +68,12 @@ const Header = () => {
 				<a className='btn btn-ghost text-xl'>{LOGO}</a>
 			</div>
 			<div className='navbar-end gap-2'>
+				{loggedIn && (
+					<Form method='post'>
+						<button className='btn btn-link'>Sign out</button>
+					</Form>
+				)}
+
 				<select
 					className='select select-md focus:outline-none select-ghost max-w-xs text-md'
 					onChange={changeTheme}

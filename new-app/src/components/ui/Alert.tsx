@@ -6,6 +6,7 @@ interface Props {
 }
 
 const Alert = ({ children, type }: Props) => {
+	console.log("alert type", `alert-${type}`);
 	return (
 		<div role='alert' className={`alert max-w-2xl w-[45rem] alert-${type}`}>
 			<svg
