@@ -7,7 +7,9 @@ const BaseScreen = () => {
 	return (
 		<>
 			<Header />
-			<Outlet />
+			<main className='flex-1 overflow-y-auto'>
+				<Outlet />
+			</main>
 			<Footer />
 			<ToastContainer />
 		</>

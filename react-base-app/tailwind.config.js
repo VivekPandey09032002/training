@@ -1,6 +1,11 @@
+/** @type {import('tailwindcss').Config} */
+
 import daisyui from 'daisyui'
 import autoprefixer from 'autoprefixer'
-/** @type {import('tailwindcss').Config} */
+import { tailwindThemes } from "./src/utils/constants.ts"
+
+console.log("tailwind themes", tailwindThemes);
+
 export default {
   content: [
     "./index.html",
@@ -11,7 +16,7 @@ export default {
   },
   plugins: [daisyui, autoprefixer],
   daisyui: {
-    themes: ["cupcake", "corporate", "dark", "dracula", "night"]
+    themes: tailwindThemes
   }
 }
 

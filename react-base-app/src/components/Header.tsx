@@ -1,17 +1,17 @@
 import { ChangeEvent } from "react";
-import { LOGO, THEMES, links } from "../utils/constants";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useCustomTheme from "../hooks/useCustomTheme";
+import { headerTitle, links, tailwindThemes } from "../utils/constants";
 
 const Header = () => {
-	const setTheme = useCustomTheme(THEMES);
+	const setTheme = useCustomTheme(tailwindThemes);
 
 	function changeTheme(e: ChangeEvent<HTMLSelectElement>) {
 		setTheme(e.target.value);
 	}
 
 	return (
-		<header id='header' className='navbar bg-base-100'>
+		<header className='navbar sticky top-0  z-50 bg-secondary text-secondary-content'>
 			<div className='navbar-start'>
 				<div className='dropdown'>
 					<div tabIndex={0} className='btn btn-ghost btn-circle '>
@@ -48,16 +48,21 @@ const Header = () => {
 				</div>
 			</div>
 			<div className='navbar-center'>
-				<a className='btn btn-ghost text-xl'>{LOGO}</a>
+				<Link className='btn btn-ghost text-xl' to='/'>
+					{headerTitle}
+				</Link>
 			</div>
 			<div className='navbar-end gap-2'>
 				<select
-					className='select select-md focus:outline-none select-ghost max-w-xs text-md'
+					className='select select-md focus:border-none select-ghost  text-md focus:bg-secondary focus:rounded-md'
 					onChange={changeTheme}
 				>
-					<option disabled>Theme</option>
-					{THEMES.map((item) => (
-						<option key={item} value={item}>
+					{tailwindThemes.map((item) => (
+						<option
+							key={item}
+							value={item}
+							className='text-center font-semibold'
+						>
 							{item}
 						</option>
 					))}
