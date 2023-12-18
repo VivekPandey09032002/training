@@ -1,0 +1,19 @@
+{
+	"categories": [
+		{
+			"id": 1,
+			"category_name": "Basic",
+			"priority": "low"
+		},
+		{
+			"id": 2,
+			"category_name": "General",
+			"priority": "normal"
+		},
+		{
+			"id": 3,
+			"category_name": "Important",
+			"priority": "high"
+		}
+	]
+}
